@@ -8,7 +8,7 @@ def generate_launch_description():
     pkg_dir = get_package_share_directory('ball_pusher_robot')
     
     # Read URDF file
-    urdf_file = os.path.join(pkg_dir, 'urdf', 'ball_pusher_gazebo.urdf')
+    urdf_file = os.path.join(pkg_dir, 'urdf', 'ball_pusher.urdf')
     with open(urdf_file, 'r') as f:
         robot_desc = f.read()
     
