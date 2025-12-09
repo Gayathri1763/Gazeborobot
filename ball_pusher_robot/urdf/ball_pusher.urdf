@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<robot name="ball_pusher">
+
+  <!-- MATERIALS -->
+  <material name="grey">
+    <color rgba="0.7 0.7 0.7 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+
+  <material name="green">
+    <color rgba="0 1 0 1"/>
+  </material>
+
+  <!-- BASE LINK (MAIN BODY) -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <!-- Longer on the back, open on the front -->
+        <box size="0.6 0.4 0.2"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+ <!-- FRONT LEFT WHEEL -->
+<link name="front_left_wheel">
+  <visual>
+    <geometry><cylinder radius="0.08" length="0.04"/></geometry>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    <material name="black"/>
+  </visual>
+</link>
+
+<joint name="front_left_wheel_joint" type="continuous">
+  <parent link="base_link"/>
+  <child link="front_left_wheel"/>
+  <origin xyz="0.2 0.22 -0.08" rpy="0 0 0"/>
+  <axis xyz="0 1 0"/>
+</joint>
+
+<!-- FRONT RIGHT WHEEL -->
+<link name="front_right_wheel">
+  <visual>
+    <geometry><cylinder radius="0.08" length="0.04"/></geometry>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    <material name="black"/>
+  </visual>
+</link>
+
+<joint name="front_right_wheel_joint" type="continuous">
+  <parent link="base_link"/>
+  <child link="front_right_wheel"/>
+  <origin xyz="0.2 -0.22 -0.08" rpy="0 0 0"/>
+  <axis xyz="0 1 0"/>
+</joint>
+
+<!-- REAR LEFT WHEEL -->
+<link name="rear_left_wheel">
+  <visual>
+    <geometry><cylinder radius="0.08" length="0.04"/></geometry>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    <material name="black"/>
+  </visual>
+</link>
+
+<joint name="rear_left_wheel_joint" type="continuous">
+  <parent link="base_link"/>
+  <child link="rear_left_wheel"/>
+  <origin xyz="-0.2 0.22 -0.08" rpy="0 0 0"/>
+  <axis xyz="0 1 0"/>
+</joint>
+
+<!-- REAR RIGHT WHEEL -->
+<link name="rear_right_wheel">
+  <visual>
+    <geometry><cylinder radius="0.08" length="0.04"/></geometry>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    <material name="black"/>
+  </visual>
+</link>
+
+<joint name="rear_right_wheel_joint" type="continuous">
+  <parent link="base_link"/>
+  <child link="rear_right_wheel"/>
+  <origin xyz="-0.2 -0.22 -0.08" rpy="0 0 0"/>
+  <axis xyz="0 1 0"/>
+</joint>
+
+
+  <!-- LEFT ARM -->
+  <link name="left_arm">
+    <visual>
+      <geometry>
+        <box size="0.45 0.05 0.1"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="left_arm_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="left_arm"/>
+    <origin xyz="0.35 0.20 0.0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="1" lower="-1.2" upper="0.3"/>
+  </joint>
+
+  <!-- LEFT GRIPPERS -->
+  <!-- Left finger 1 -->
+  <link name="left_gripper_1">
+    <visual>
+      <geometry>
+        <box size="0.02 0.23 0.1"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="left_gripper_1_joint" type="prismatic">
+    <parent link="left_arm"/>
+    <child link="left_gripper_1"/>
+    <origin xyz="0.20 0 0" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/> <!-- slides inward/outward horizontally -->
+    <limit lower="0" upper="0.08" effort="5" velocity="0.1"/>
+  </joint>
+
+  <!-- Left finger 2 -->
+  <link name="left_gripper_2">
+    <visual>
+      <geometry>
+        <box size="0.02 0.12 0.1"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="left_gripper_2_joint" type="prismatic">
+    <parent link="left_arm"/>
+    <child link="left_gripper_2"/>
+    <origin xyz="0.20 0.06 0" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="0" upper="0.08" effort="5" velocity="0.1"/>
+  </joint>
+
+  <!-- RIGHT ARM -->
+  <link name="right_arm">
+    <visual>
+      <geometry>
+        <box size="0.45 0.05 0.1"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="right_arm_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="right_arm"/>
+    <origin xyz="0.35 -0.20 0.0" rpy="0 0 0"/>
+    <axis xyz="0 0 -1"/>
+    <limit effort="10" velocity="1" lower="-1.2" upper="0.3"/>
+  </joint>
+
+  <!-- RIGHT GRIPPERS -->
+  <!-- Right finger 1 -->
+  <link name="right_gripper_1">
+    <visual>
+      <geometry>
+        <box size="0.02 0.24 0.1"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="right_gripper_1_joint" type="prismatic">
+    <parent link="right_arm"/>
+    <child link="right_gripper_1"/>
+    <origin xyz="0.20 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/> <!-- slides inward toward center -->
+    <limit lower="0" upper="0.08" effort="5" velocity="0.1"/>
+  </joint>
+
+  <!-- Right finger 2 -->
+  <link name="right_gripper_2">
+    <visual>
+      <geometry>
+        <box size="0.02 0.12 0.1"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="right_gripper_2_joint" type="prismatic">
+    <parent link="right_arm"/>
+    <child link="right_gripper_2"/>
+    <origin xyz="0.20 -0.06 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="0.08" effort="5" velocity="0.1"/>
+  </joint>
+
+</robot>
