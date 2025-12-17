@@ -33,10 +33,3 @@ The robot is a **four-wheeled mobile base** with additional **manipulation compo
   - Two prismatic gripper fingers
 
 ---
-
-## Display Launch (RViz)
-
-The robot can be visualised and tested using the following command:
-
-```bash
-ros2 launch my_bot display.launch.py
