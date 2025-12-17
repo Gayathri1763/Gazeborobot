@@ -3,13 +3,18 @@
 <package format="3">
   <name>my_bot_teleop</name>
   <version>0.0.0</version>
-  <description>Keyboard teleoperation for my robot</description>
-  <maintainer email="gayathri17603@gmail.com">gayathri</maintainer>
-  <license>Apache-2.0</license>
-
-  <depend>rclpy</depend>
-  <depend>geometry_msgs</depend>
-  <depend>my_bot_control</depend>
+  <description>Teleoperation package for my robot</description>
+  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <license>Apache License 2.0</license>
+  
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <!-- Add other dependencies as needed -->
+  
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
   
   <export>
     <build_type>ament_python</build_type>
