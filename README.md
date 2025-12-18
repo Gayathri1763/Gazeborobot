@@ -32,9 +32,7 @@ The robot is a **four-wheeled mobile base** with additional **manipulation compo
 - Two arms:
   - Left arm
   - Right arm
-- Each arm includes:
-  - One revolute joint
-  - Two prismatic gripper fingers
+- Each arm includes prismatic gripper finger
 
 ---
 
@@ -56,7 +54,7 @@ confirming:
 
 ### Assessment world launch
 
-The assessmnet world provided was succesfully launched inside the gazebo and balls and obstacles were also correct.
+The assessment world provided was succesfully launched inside the gazebo and balls and obstacles were also correct.
 "ros2 launch assessment_world assessment_complete.launch.py"
 
 
@@ -72,7 +70,7 @@ At this stage:
 - The model loads without errors    
 - The robot interacts correctly with the Gazebo environment  
 - Collisions with walls are detected
-- The collision with balls where not perfect.
+- The collision with balls were not perfect.
 
 ---
 
@@ -97,6 +95,6 @@ This coursework successfully demonstrates the design, modelling, and simulation 
 - https://docs.ros.org/en/jazzy/Tutorials/URDF/URDF-Main.html
 - https://docs.ros.org/en/jazzy/Tutorials/Using-RViz.html
 - https://docs.ros.org/en/jazzy/p/robot_state_publisher/
-- Google webbrowser 
+- Google web browser 
 
 The video presentation :- 
