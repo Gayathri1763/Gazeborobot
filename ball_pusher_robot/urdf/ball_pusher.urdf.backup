@@ -1,20 +1,5 @@
 <?xml version="1.0"?>
 <robot name="ball_pusher">
-  <material name="grey">
-    <color rgba="0.7 0.7 0.7 1.0"/>
-  </material>
-  <material name="black">
-    <color rgba="0.0 0.0 0.0 1.0"/>
-  </material>
-
-  <link name="world"/>
-
-  <!-- Joint connecting world to base_link (THIS IS THE FIX) -->
-  <joint name="world_to_base" type="fixed">
-    <parent link="world"/>
-    <child link="base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </joint>
 
   <!-- BASE LINK -->
   <link name="base_link">
@@ -36,7 +21,7 @@
     <parent link="base_link"/>
     <child link="front_left_wheel"/>
     <origin xyz="0.2 0.22 -0.08" rpy="0 0 0"/>
-<axis xyz="0 1 0"/>
+    <axis xyz="0 1 0"/>
   </joint>
 
   <gazebo reference="front_left_wheel"><material>Gazebo/Black</material></gazebo>
@@ -66,7 +51,7 @@
   </link>
 
   <joint name="right_arm_joint" type="fixed">
-<parent link="base_link"/>
+    <parent link="base_link"/>
     <child link="right_arm"/>
     <origin xyz="0.35 -0.20 0.0" rpy="0 0 0"/>
   </joint>
