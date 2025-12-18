@@ -11,6 +11,10 @@ At the current stage, the robot has been successfully:
 - Spawned into **Gazebo Harmonic**
 - Visualised and tested using **RViz**
 
+  The package "ball_pusher_robot" contains the robot description and visualisation configuration.
+  The package "my_bot_control" contains control and launch configurations for operating the robot in simulation.
+  The package "assessment_world" contains the Gazebo simulation environment provided for the coursework assessment.
+
 ---
 
 ## Robot Description
@@ -36,7 +40,11 @@ The robot is a **four-wheeled mobile base** with additional **manipulation compo
 
 ### RViz Visualisation
 
-The robot was successfully visualised in RViz, confirming:
+The robot was successfully visualised in RViz, 
+" ros2 run robot_state_publisher robot_state_publisher ~/ros2/src/ball_pusher_robot/urdf/ball_pusher.urdf"
+"ros2 run rviz2 rviz2"
+
+confirming:
 
 - Correct link hierarchy  
 - Proper joint connections   
@@ -49,11 +57,13 @@ The robot was successfully visualised in RViz, confirming:
 ### Assessment world launch
 
 The assessmnet world provided was succesfully launched inside the gazebo and balls and obstacles were also correct.
+"ros2 launch assessment_world assessment_complete.launch.py"
 
 
 ### Spawning the Robot in Gazebo Harmonic
 
 The robot was spawned into Gazebo Harmonic using a custom launch configuration.
+"ros2 launch ball_pusher_robot spawn_robot.launch.py"
 
 At this stage:
 
@@ -80,5 +90,13 @@ At the current stage of development, the project demonstrates:
 ## Conclusion
 
 This coursework successfully demonstrates the design, modelling, and simulation of a mobile robot using ROS 2 Jazzy and Gazebo Harmonic. The current implementation validates the robot model, simulation setup, and basic control pipeline, providing a solid foundation for further development and experimentation.
+
+## References
+
+- ChatGPT, Deepseek and Gemini (for error correction and gazebo issues)
+- https://docs.ros.org/en/jazzy/Tutorials/URDF/URDF-Main.html
+- https://docs.ros.org/en/jazzy/Tutorials/Using-RViz.html
+- https://docs.ros.org/en/jazzy/p/robot_state_publisher/
+- Google webbrowser 
 
 The video presentation :- 
